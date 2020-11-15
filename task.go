@@ -1,64 +1,81 @@
 package ci
 
 import (
-	"context"
-	"io"
-	"log"
+	"bytes"
+	"encoding/json"
+	"errors"
+	"fmt"
+	"net/http"
 	"os"
-
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/client"
-	"github.com/docker/docker/pkg/stdcopy"
+	"strconv"
 )
 
 type Step struct {
-	Image string
-	Cmd   []string
+	Name        string
+	Image       string
+	Cmd         []string
+	CpuLimit    int
+	MemoryLimit int
+	//BuildID???
+	//Host??
 }
 
-func RunStep(step *Step) {
-	log.Println("Running::", step)
+type stepExec struct {
+	Name     string
+	Image    string
+	Cmd      []string
+	CpuLimit int
+	Memory   int
+	BuildId  int64
+}
 
-	ctx := context.Background()
-	cli, err := client.NewEnvClient() //(client.FromEnv, client.WithAPIVersionNegotiation())
+const hostURL string = "TE_HOST_URL"
+const buildID string = "TE_BUILD_ID"
+
+func RunStep(step *Step) error {
+	if len(step.Name) == 0 {
+		return errors.New("name is missing")
+	}
+
+	if len(step.Image) == 0 {
+		return errors.New("image is missing")
+	}
+
+	if len(step.Cmd) == 0 {
+		return errors.New("commands are missing")
+	}
+
+	hostURL := os.Getenv(hostURL)
+	if len(hostURL) == 0 {
+		return errors.New("host URL is missing")
+	}
+
+	buildIdEnv := os.Getenv(buildID)
+	if len(buildIdEnv) == 0 {
+		return errors.New("build Id is missing")
+	}
+
+	buildId, err := strconv.ParseInt(buildIdEnv, 10, 64)
 	if err != nil {
-		panic(err)
+		return errors.New("invalid build Id")
 	}
 
-	reader, err := cli.ImagePull(ctx, "docker.io/library/alpine", types.ImagePullOptions{})
+	stepExec := &stepExec{
+		Name:     step.Name,
+		BuildId:  buildId,
+		Image:    step.Image,
+		Cmd:      step.Cmd,
+		CpuLimit: step.CpuLimit,
+		Memory:   step.MemoryLimit,
+	}
+
+	data, err := json.Marshal(stepExec)
 	if err != nil {
-		panic(err)
-	}
-	io.Copy(os.Stdout, reader)
-
-	resp, err := cli.ContainerCreate(ctx, &container.Config{
-		Image: step.Image,
-		Cmd:   step.Cmd,
-	}, nil, nil, "")
-	if err != nil {
-		panic(err)
+		return err
 	}
 
-	if err := cli.ContainerStart(ctx, resp.ID, types.ContainerStartOptions{}); err != nil {
-		panic(err)
-	}
-
-	cli.ContainerWait(ctx, resp.ID)
-	//select {
-	//case err := <-errCh:
-	//	if err != nil {
-	//		panic(err)
-	//	}
-	//case <-statusCh:
-	//}
-
-	out, err := cli.ContainerLogs(ctx, resp.ID, types.ContainerLogsOptions{ShowStdout: true})
-	if err != nil {
-		panic(err)
-	}
-
-	stdcopy.StdCopy(os.Stdout, os.Stderr, out)
-
-	log.Println("Done!!!")
+	url := fmt.Sprintf("%s:/api/task", hostURL)
+	client := http.Client{}
+	_, err = client.Post(url, "application/json", bytes.NewReader(data))
+	return err
 }
