@@ -1,3 +1,3 @@
-module github.com/task-executor/ci
+module github.com/tahirali-csc/task-executor/ci
 
 go 1.14
