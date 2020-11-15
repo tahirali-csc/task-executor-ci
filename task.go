@@ -59,4 +59,6 @@ func RunStep(step *Step) {
 	}
 
 	stdcopy.StdCopy(os.Stdout, os.Stderr, out)
+
+	log.Println("Done!!!")
 }
