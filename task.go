@@ -74,7 +74,7 @@ func RunStep(step *Step) error {
 		return err
 	}
 
-	url := fmt.Sprintf("%s:/api/task", hostURL)
+	url := fmt.Sprintf("%s:/api/steps", hostURL)
 	client := http.Client{}
 	_, err = client.Post(url, "application/json", bytes.NewReader(data))
 	return err
