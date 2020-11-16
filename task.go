@@ -14,6 +14,7 @@ type Step struct {
 	Name        string
 	Image       string
 	Cmd         []string
+	Args        []string
 	CpuLimit    int
 	MemoryLimit int
 	//BuildID???
@@ -24,6 +25,7 @@ type stepExec struct {
 	Name     string
 	Image    string
 	Cmd      []string
+	Args     []string
 	CpuLimit int
 	Memory   int
 	BuildId  int64
@@ -65,6 +67,7 @@ func RunStep(step *Step) error {
 		BuildId:  buildId,
 		Image:    step.Image,
 		Cmd:      step.Cmd,
+		Args:     step.Args,
 		CpuLimit: step.CpuLimit,
 		Memory:   step.MemoryLimit,
 	}
