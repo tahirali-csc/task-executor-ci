@@ -2,6 +2,7 @@ module github.com/tahirali-csc/task-executor-ci
 
 go 1.14
 
+
 require (
 	//github.com/Microsoft/go-winio v0.4.15 // indirect
 	//github.com/docker/distribution v2.7.1+incompatible // indirect

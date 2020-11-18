@@ -34,6 +34,8 @@ type stepExec struct {
 const hostURL string = "TE_HOST_URL"
 const buildID string = "TE_BUILD_ID"
 
+func Dumb(){}
+
 func RunStep(step *Step) error {
 	if len(step.Name) == 0 {
 		return errors.New("name is missing")
