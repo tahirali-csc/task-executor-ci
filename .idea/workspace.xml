@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="64e0cecd-0cbb-4e5e-9a37-d91383b489df" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/task_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/task.go" beforeDir="false" afterPath="$PROJECT_DIR$/task.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -12,6 +16,13 @@
   <component name="ElmWorkspace">
     <elmProjects />
     <settings elmCompilerPath="" elmFormatPath="" elmTestPath="" isElmFormatOnSaveEnabled="false" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
@@ -26,6 +37,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
@@ -33,6 +45,34 @@
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="org.elm.workspace.PROJECT_DISCOVERY" value="true" />
+  </component>
+  <component name="RunManager" selected="Go Test.TestTask in github.com/tahirali-csc/task-executor-ci">
+    <configuration name="go build test_task.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="task-executor-ci" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/test_task.go" />
+      <package value="github.com/tahirali-csc/task-executor-ci" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestTask in github.com/tahirali-csc/task-executor-ci" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="task-executor-ci" />
+      <working_directory value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/tahirali-csc/task-executor-ci" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestTask\E$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Test.TestTask in github.com/tahirali-csc/task-executor-ci" />
+        <item itemvalue="Go Build.go build test_task.go" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -46,5 +86,76 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="696" y="412" key="#Go_Modules/0.23.1792.1097@0.23.1792.1097" timestamp="1605471664481" />
+    <state x="659" y="282" key="#xdebugger.evaluate" timestamp="1606061577963">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="659" y="282" key="#xdebugger.evaluate/0.23.1792.1097@0.23.1792.1097" timestamp="1606061577963" />
+    <state width="769" height="466" key="DebuggerActiveHint" timestamp="1606061639986">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="769" height="466" key="DebuggerActiveHint/0.23.1792.1097@0.23.1792.1097" timestamp="1606061639986" />
+    <state width="1750" height="303" key="GridCell.Tab.0.bottom" timestamp="1606062076787">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="1750" height="303" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1606062076787" />
+    <state width="1750" height="303" key="GridCell.Tab.0.center" timestamp="1606062076787">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="1750" height="303" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1606062076787" />
+    <state width="1750" height="303" key="GridCell.Tab.0.left" timestamp="1606062076786">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="1750" height="303" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1606062076786" />
+    <state width="1750" height="303" key="GridCell.Tab.0.right" timestamp="1606062076787">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="1750" height="303" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1606062076787" />
+    <state width="1750" height="374" key="GridCell.Tab.1.bottom" timestamp="1606061719021">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="1750" height="374" key="GridCell.Tab.1.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1606061719021" />
+    <state width="1750" height="374" key="GridCell.Tab.1.center" timestamp="1606061719021">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="1750" height="374" key="GridCell.Tab.1.center/0.23.1792.1097@0.23.1792.1097" timestamp="1606061719021" />
+    <state width="1750" height="374" key="GridCell.Tab.1.left" timestamp="1606061719020">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="1750" height="374" key="GridCell.Tab.1.left/0.23.1792.1097@0.23.1792.1097" timestamp="1606061719020" />
+    <state width="1750" height="374" key="GridCell.Tab.1.right" timestamp="1606061719021">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="1750" height="374" key="GridCell.Tab.1.right/0.23.1792.1097@0.23.1792.1097" timestamp="1606061719021" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/task_test.go</url>
+          <line>16</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/task.go</url>
+          <line>82</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/task.go</url>
+          <line>102</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/task.go</url>
+          <line>88</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/runner.go</url>
+          <line>29</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

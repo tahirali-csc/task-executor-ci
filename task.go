@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io/ioutil"
 	"net/http"
 	"os"
 	"strconv"
@@ -79,6 +80,27 @@ func RunStep(step *Step) error {
 
 	url := fmt.Sprintf("%s:/api/steps", hostURL)
 	client := http.Client{}
-	_, err = client.Post(url, "application/json", bytes.NewReader(data))
-	return err
+	res, err := client.Post(url, "application/json", bytes.NewReader(data))
+
+	if err != nil {
+		return err
+	}
+
+	data, err = ioutil.ReadAll(res.Body)
+	if err != nil {
+		return err
+	}
+
+	stepInfo := make(map[string]interface{})
+	err = json.Unmarshal(data, &stepInfo)
+	if err != nil {
+		return err
+	}
+
+	stepId := int64(stepInfo["Id"].(float64))
+
+	runner := NewRunner()
+	runner.Run(step, stepId)
+
+	return nil
 }
