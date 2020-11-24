@@ -102,5 +102,13 @@ func RunStep(step *Step) error {
 	runner := NewRunner()
 	runner.Run(step, stepId)
 
+	//TODO:
+	url = fmt.Sprintf("%s:/api/steps/%d/status/%s", hostURL, stepId, "Finished")
+	res, err = client.Post(url, "application/json", bytes.NewReader(data))
+
+	if err != nil {
+		return err
+	}
+
 	return nil
 }

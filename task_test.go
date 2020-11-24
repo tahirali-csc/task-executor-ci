@@ -13,7 +13,7 @@ func TestTask(t *testing.T) {
 		Cmd:   []string{"ls"},
 	}
 	os.Setenv("TE_HOST_URL","http://localhost:8080")
-	os.Setenv("TE_BUILD_ID","95")
+	os.Setenv("TE_BUILD_ID","100")
 	err := RunStep(step)
 	if err != nil {
 		log.Println(err)
