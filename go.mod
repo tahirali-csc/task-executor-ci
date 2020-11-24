@@ -6,10 +6,7 @@ go 1.14
 //	github.com/tahirali-csc/task-executor-engine => "/Users/tahir/workspace/rnd-projects/product launch/task-executor-engine"
 //)
 
-
-replace (
-	k8s.io/client-go => k8s.io/client-go v0.19.2
-)
+replace k8s.io/client-go => k8s.io/client-go v0.19.2
 
 require (
 	github.com/go-logr/logr v0.3.0 // indirect
@@ -26,7 +23,6 @@ require (
 	google.golang.org/appengine v1.6.7 // indirect
 	k8s.io/api v0.19.4 // indirect
 	k8s.io/client-go v11.0.0+incompatible // indirect
-	k8s.io/klog v1.0.0 // indirect
 	k8s.io/klog/v2 v2.4.0 // indirect
 	k8s.io/utils v0.0.0-20201110183641-67b214c5f920 // indirect
 	sigs.k8s.io/structured-merge-diff/v4 v4.0.2 // indirect
