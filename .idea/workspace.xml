@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="64e0cecd-0cbb-4e5e-9a37-d91383b489df" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/build.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task.go" beforeDir="false" afterPath="$PROJECT_DIR$/task.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/task_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/build_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +45,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="org.elm.workspace.PROJECT_DISCOVERY" value="true" />
   </component>
-  <component name="RunManager" selected="Go Test.TestTask in github.com/tahirali-csc/task-executor-ci">
+  <component name="RunManager" selected="Go Test.TestBuild in github.com/tahirali-csc/task-executor-ci">
     <configuration name="go build test_task.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="task-executor-ci" />
       <working_directory value="$PROJECT_DIR$" />
@@ -52,6 +53,17 @@
       <filePath value="$PROJECT_DIR$/test_task.go" />
       <package value="github.com/tahirali-csc/task-executor-ci" />
       <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestBuild in github.com/tahirali-csc/task-executor-ci" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="task-executor-ci" />
+      <working_directory value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/tahirali-csc/task-executor-ci" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestBuild\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestTask in github.com/tahirali-csc/task-executor-ci" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -67,6 +79,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestBuild in github.com/tahirali-csc/task-executor-ci" />
         <item itemvalue="Go Test.TestTask in github.com/tahirali-csc/task-executor-ci" />
         <item itemvalue="Go Build.go build test_task.go" />
       </list>
@@ -92,56 +105,50 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="659" y="282" key="#xdebugger.evaluate/0.23.1792.1097@0.23.1792.1097" timestamp="1606061577963" />
-    <state width="769" height="466" key="DebuggerActiveHint" timestamp="1606061639986">
+    <state width="769" height="466" key="DebuggerActiveHint" timestamp="1606228569879">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="769" height="466" key="DebuggerActiveHint/0.23.1792.1097@0.23.1792.1097" timestamp="1606061639986" />
-    <state width="1750" height="303" key="GridCell.Tab.0.bottom" timestamp="1606182776734">
+    <state width="769" height="466" key="DebuggerActiveHint/0.23.1792.1097@0.23.1792.1097" timestamp="1606228569879" />
+    <state width="1750" height="374" key="GridCell.Tab.0.bottom" timestamp="1606228804068">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="303" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1606182776734" />
-    <state width="1750" height="303" key="GridCell.Tab.0.center" timestamp="1606182776733">
+    <state width="1750" height="374" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1606228804068" />
+    <state width="1750" height="374" key="GridCell.Tab.0.center" timestamp="1606228804067">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="303" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1606182776733" />
-    <state width="1750" height="303" key="GridCell.Tab.0.left" timestamp="1606182776733">
+    <state width="1750" height="374" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1606228804067" />
+    <state width="1750" height="374" key="GridCell.Tab.0.left" timestamp="1606228804066">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="303" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1606182776733" />
-    <state width="1750" height="303" key="GridCell.Tab.0.right" timestamp="1606182776734">
+    <state width="1750" height="374" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1606228804066" />
+    <state width="1750" height="374" key="GridCell.Tab.0.right" timestamp="1606228804067">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="303" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1606182776734" />
-    <state width="1750" height="374" key="GridCell.Tab.1.bottom" timestamp="1606061719021">
+    <state width="1750" height="374" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1606228804067" />
+    <state width="1750" height="374" key="GridCell.Tab.1.bottom" timestamp="1606228800557">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="374" key="GridCell.Tab.1.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1606061719021" />
-    <state width="1750" height="374" key="GridCell.Tab.1.center" timestamp="1606061719021">
+    <state width="1750" height="374" key="GridCell.Tab.1.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1606228800557" />
+    <state width="1750" height="374" key="GridCell.Tab.1.center" timestamp="1606228800556">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="374" key="GridCell.Tab.1.center/0.23.1792.1097@0.23.1792.1097" timestamp="1606061719021" />
-    <state width="1750" height="374" key="GridCell.Tab.1.left" timestamp="1606061719020">
+    <state width="1750" height="374" key="GridCell.Tab.1.center/0.23.1792.1097@0.23.1792.1097" timestamp="1606228800556" />
+    <state width="1750" height="374" key="GridCell.Tab.1.left" timestamp="1606228800556">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="374" key="GridCell.Tab.1.left/0.23.1792.1097@0.23.1792.1097" timestamp="1606061719020" />
-    <state width="1750" height="374" key="GridCell.Tab.1.right" timestamp="1606061719021">
+    <state width="1750" height="374" key="GridCell.Tab.1.left/0.23.1792.1097@0.23.1792.1097" timestamp="1606228800556" />
+    <state width="1750" height="374" key="GridCell.Tab.1.right" timestamp="1606228800557">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="374" key="GridCell.Tab.1.right/0.23.1792.1097@0.23.1792.1097" timestamp="1606061719021" />
+    <state width="1750" height="374" key="GridCell.Tab.1.right/0.23.1792.1097@0.23.1792.1097" timestamp="1606228800557" />
+    <state x="100" y="123" width="1592" height="897" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1606226828988">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="100" y="123" width="1592" height="897" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1606226828988" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/task_test.go</url>
-          <line>16</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/task.go</url>
-          <line>82</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/task.go</url>
           <line>102</line>
@@ -156,6 +163,21 @@
           <url>file://$PROJECT_DIR$/runner.go</url>
           <line>29</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/build_test.go</url>
+          <line>22</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/build.go</url>
+          <line>122</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/build.go</url>
+          <line>104</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
