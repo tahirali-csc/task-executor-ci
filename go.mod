@@ -2,9 +2,9 @@ module github.com/tahirali-csc/task-executor-ci
 
 go 1.14
 
-//replace (
-//	github.com/tahirali-csc/task-executor-engine => "/Users/tahir/workspace/rnd-projects/product launch/task-executor-engine"
-//)
+replace (
+	github.com/tahirali-csc/task-executor-engine => "/Users/tahir/workspace/rnd-projects/product launch/task-executor-engine"
+)
 
 replace k8s.io/client-go => k8s.io/client-go v0.19.2
 

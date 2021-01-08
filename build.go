@@ -1,12 +1,17 @@
 package ci
 
 import (
+	"bufio"
 	"bytes"
 	"fmt"
+	"io"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"os"
+	"path"
 	"strconv"
+	"time"
 
 	"encoding/json"
 	"errors"
@@ -21,6 +26,46 @@ func NewBuild() *Build {
 
 const hostURL string = "TE_HOST_URL"
 const buildID string = "TE_BUILD_ID"
+
+func uploadLog(baseURL string, file string, stepId int64) {
+	f, err := os.OpenFile(file, os.O_RDONLY, 0644)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	const chunkSize = 100
+
+	br := bufio.NewReader(f)
+	pr, pw := io.Pipe()
+
+	url := fmt.Sprintf("%s:/api/steps/%d/logs", baseURL, stepId)
+	req, err := http.NewRequest(http.MethodPost, url, pr)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+
+	req.TransferEncoding = []string{"chunked"}
+
+	go func() {
+		defer pw.Close()
+		for {
+			_, err := io.CopyN(pw, br, chunkSize)
+			if err != nil {
+				return
+			}
+		}
+	}()
+
+	client := http.Client{}
+	_, err = client.Do(req)
+
+	if err != nil {
+		log.Println(err)
+	}
+
+	log.Println("Done loading.")
+}
 
 func (b *Build) Exec(step *Step) error {
 	if len(step.Name) == 0 {
@@ -65,7 +110,7 @@ func (b *Build) Exec(step *Step) error {
 		return err
 	}
 
-	url := fmt.Sprintf("%s:/api/steps", hostURL)
+	url := fmt.Sprintf("%s/api/steps", hostURL)
 	client := http.Client{}
 	res, err := client.Post(url, "application/json", bytes.NewReader(data))
 
@@ -84,10 +129,47 @@ func (b *Build) Exec(step *Step) error {
 		return err
 	}
 
-	stepId := int64(stepInfo["Id"].(float64))
+	logsChann := make(chan []byte)
+	doneChann := make(chan bool)
+	logFilePath := make(chan string)
 
+	go func() {
+		mountPath := os.Getenv("MOUNT_PATH")
+
+		currTime := time.Now().Unix()
+		filePath := path.Join(mountPath, fmt.Sprintf("%s-%d.log", step.Name, currTime))
+		f, err := os.Create(filePath)
+		// defer os.Remove(filePath)
+
+		if err != nil {
+			log.Println("Can not create file::::", err)
+			return
+		}
+
+		f.Chmod(0700)
+		bw := bufio.NewWriter(f)
+	loop:
+		for {
+			select {
+			case line := <-logsChann:
+				bw.WriteString(string(line) + "\n")
+				bw.Flush()
+
+			case <-doneChann:
+				break loop
+			}
+		}
+
+		logFilePath <- filePath
+	}()
+
+	stepId := int64(stepInfo["Id"].(float64))
 	runner := NewRunner()
-	runner.Run(step, stepId)
+	runner.Run(step, stepId, logsChann, doneChann)
+
+	file := <-logFilePath
+	uploadLog(hostURL, file, stepId)
+	os.Remove(file)
 
 	//TODO:
 	url = fmt.Sprintf("%s:/api/steps/%d/status/%s", hostURL, stepId, "Finished")
